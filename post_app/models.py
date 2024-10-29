@@ -30,6 +30,6 @@ class Posts(models.Model):
 
       #슬러그가 고유값인지 확인후 필요시 슬러그명 수정
       if Posts.objects.filter(slug=slug).exists():
-        slug= f'{slug_base} - {get_random_string(5)}'
+        slug= f'{slug_base}-{get_random_string(5)}'
       self.slug = slug
     super(Posts, self).save(*args, **kwargs)
