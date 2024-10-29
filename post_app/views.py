@@ -26,8 +26,6 @@ def posts(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-
-
 # 상세페이지에서 요청받을 GET, PUT, DELETE요청처름 함수 추가
 @api_view(['GET','PUT','DELETE'])
 def posts_detail(request, slug):
@@ -46,7 +44,7 @@ def posts_detail(request, slug):
   # 요청 방식이 'PUT'이면 찾아놓은 모델데이터를 수정해서 다시 저장
   elif request.method =='PUT':
     # 클라이언트로부터 전달받은 데이터를 반영해서 기존 모델 구조를 변경한뒤 다시 역직렬화
-    PostSerializer(post, data= request.data)
+    serializer = PostSerializer(post, data= request.data)
 
     # 유효성 검사에 성공하면
     if serializer.is_valid():
