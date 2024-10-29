@@ -53,3 +53,7 @@ def posts_detail(request, slug):
       return Response(serializer.data, status=status.HTTP_200_OK)
     # 수정에 실패하면 실패 응답 반환
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+  # 요청 방식이 'DELETE'이면 찾아놓은 모델데이터를 DB 테이블에서 제거, 제거응답 상태 전송
+  post.delete()
+  return  Response(status=status.HTTP_204_NO_CONTENT)
