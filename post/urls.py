@@ -22,3 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('post_app.urls'))
 ]
+
+"""
+CORS 
+(Cross-Origin Resources Sharing)은 
+웹어플리케이션에서 특정 도메인에서 다른 도메인으로 데이처 요청할때 발생하는 보안 문제 해결을 위히 사용
+"""
