@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# 앱이 추가될때 기본 path경로와 각 앱 폴더 안쪽의 urls.py를 아래와 같이 등록
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('post_app.urls'))

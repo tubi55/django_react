@@ -5,14 +5,17 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 
+# 순서2 - url요청이 들어왔을때 요청의 HTTP방식확인해서 해당 방식에맞는 DB 데이터(모델) 제어
 @api_view(['GET', 'POST'])
 def posts(request):
 
+  # 들어온 요청이 GET 방식일때는 기존의 모델데이터를 JSON형태로 직렬화해서 프론트로 전달
   if request.method == 'GET':
     posts = Posts.objects.all()
     serializer = PostSerializer(posts, many=True)
     return Response(serializer.data)
 
+  # 들어온 요청이 POST 방식일때는 클라이언트로부터 받은 데이터를 역질렬화해서 모델저장
   elif request.method == 'POST':
     serializer = PostSerializer(data=request.data)
 

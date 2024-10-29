@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.utils.crypto import get_random_string
 
+# 순서1 - DB에 저장하고 싶은 데이터 구조에 맞게 모델 구조 설정
 # 포스트 모델 생성 클래스
 class Posts(models.Model):
   # 포스트 카테고리
