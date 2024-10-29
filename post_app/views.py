@@ -10,7 +10,7 @@ from django.db.models import Q
 def posts(request):
   # 들어온 요청이 GET 방식일때는 기존의 모델데이터를 JSON형태로 직렬화해서 프론트로 전달
   if request.method == 'GET':
-    posts = Posts.objects.all()
+    posts = Posts.objects.all().order_by('-id')
     serializer = PostSerializer(posts, many=True)
     return Response(serializer.data)
 
